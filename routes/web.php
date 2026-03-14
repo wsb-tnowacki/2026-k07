@@ -11,7 +11,7 @@ Route::get('/', function () {
 Route::get('/kontakt', function () {
     return view('kontakt');
 })->name('kontakt');
-Route::get('/onas', function () {
+Route::get('/o-nas', function () {
     $zadania =[
         'Zadanie 1',
         'Zadanie 2',
