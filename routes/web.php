@@ -1,15 +1,17 @@
 <?php
 
+use App\Http\Controllers\OgolneController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-})->name('start');
+})->name('start'); */
 /* Route::get('/user/{id}', function (string $id) {
     return 'User '.$id;
 }); */
-Route::get('/kontakt', function () {
+/* Route::get('/kontakt', function () {
     return view('kontakt');
 })->name('kontakt');
 Route::get('/o-nas', function () {
@@ -21,7 +23,20 @@ Route::get('/o-nas', function () {
     //return view('onas',['zadania' => $zadania]);
     //return view('onas')->with('zadania', $zadania);
     return view('onas', compact('zadania'));
-})->name('onas');
+})->name('onas'); */
+
+/* Route::get('/', [OgolneController::class, 'start'])->name('ogolne.start');
+Route::get('/kontakt', [OgolneController::class, 'kontakt'])->name('ogolne.kontakt');
+Route::get('/o-nas', [OgolneController::class, 'onas'])->name('ogolne.onas'); */
+
+Route::controller(OgolneController::class)->group(function (){
+    Route::get('/', 'start')->name('ogolne.start');
+    Route::get('/kontakt', 'kontakt')->name('ogolne.kontakt');
+    Route::get('/o-nas', 'onas')->name('ogolne.onas');
+}
+);
+
+Route::resource('test', TestController::class);
 
 Route::get('/dashboard', function () {
     //return view('dashboard');
