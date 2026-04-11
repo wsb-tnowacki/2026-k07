@@ -1,3 +1,7 @@
-<div>
-    <!-- When there is no desire, all things are at peace. - Laozi -->
-</div>
+@extends('layout.layout')
+@section('tytul','K07 - Lista postów')
+@section('podtytul','Lista postów')
+@section('tresc')
+
+
+@endsection
