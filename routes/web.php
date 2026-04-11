@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OgolneController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,7 @@ Route::controller(OgolneController::class)->group(function (){
 );
 
 Route::resource('test', TestController::class);
+Route::resource('post', PostController::class);
 
 Route::get('/dashboard', function () {
     //return view('dashboard');
