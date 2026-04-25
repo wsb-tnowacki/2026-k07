@@ -29,13 +29,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request;
-        $post = new Post();
+        //return $request->all();
+        /* $post = new Post();
         $post->tytul = request('tytul');
         $post->autor = $request['autor'];
         $post->email = request('email');
         $post->tresc = request('tresc');
-        $post->save();
+        $post->save(); */
+        Post::create($request->all());
         return redirect(route('post.index'))->with('message', 'Dodano poprawnie posta');
     }
 
@@ -52,7 +53,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('post.zmien', compact('post'));
     }
 
     /**
@@ -60,7 +61,8 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->update($request->all());
+        return redirect(route('post.index'))->with('message', 'Zmieniono poprawnie posta');
     }
 
     /**
