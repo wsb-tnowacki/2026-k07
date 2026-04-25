@@ -28,7 +28,7 @@
     <div class="flex items-center gap-x-2">
         <a href="{{route('post.index')}}">
             <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">Powrót do listy</button>
-        </a>
+        </a>    
         <a href="{{route('post.edit', $post->id)}}">
             <button type="button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">Edytuj posta</button>
         </a>
