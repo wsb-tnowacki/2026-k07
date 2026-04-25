@@ -12,7 +12,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post.lista');
+        $posty = Post::all();
+        return view('post.lista', compact('posty'));
     }
 
     /**
