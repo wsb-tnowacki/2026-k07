@@ -21,11 +21,14 @@
                 </tr>
             </thead>
             @isset($posty)
+            @php($lp=1)
+
                 @forelse ($posty as $post)
                     <tbody>
                         <tr>
-                            <th class="border border-gray-300 px-4 py-2" scope="row">{{ $post['id'] }}</th>
-                            <td class="border border-gray-300 px-4 py-2">{{$post->tytul}}</td>
+                            <th class="border border-gray-300 px-4 py-2" scope="row">{{$lp++}} (id:{{ $post['id'] }})</th>
+                            <td class="border border-gray-300 px-4 py-2">
+                                <a href="{{route('post.show',$post->id)}}">{{$post->tytul}}</a></td>
                             <td class="border border-gray-300 px-4 py-2">{{ $post->autor }}</td>
                             <td class="border border-gray-300 px-4 py-2">{{ $post->created_at->locale('pl')->setTimezone('Europe/Warsaw')->translatedFormat('j F Y H:i:s') }}</td>
                         </tr>
