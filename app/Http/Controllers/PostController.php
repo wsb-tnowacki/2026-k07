@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostStoreRequest $request)
     {
         //return $request->all();
         /* $post = new Post();
@@ -36,14 +37,14 @@ class PostController extends Controller
         $post->email = request('email');
         $post->tresc = request('tresc');
         $post->save(); */
-        $request->validate(
+        /* $request->validate(
             [
                 "tytul" => 'required|min:2|max:200',
                 "autor" => ['required', 'min:3', 'max:100'],
                 "email" => 'required|min:4|max:200|email:dns,rfc',
                 "tresc" => 'required|min:5',
             ]
-        );
+        ); */
         Post::create($request->all());
         return redirect(route('post.index'))->with('message', 'Dodano poprawnie posta');
     }
@@ -67,7 +68,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostStoreRequest $request, Post $post)
     {
         $post->update($request->all());
         return redirect(route('post.index'))->with('message', 'Zmieniono poprawnie posta');
